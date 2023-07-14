@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Package Created</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="orderPage.css">
+    <link rel="icon" type="image/x-icon" href="logo-1.png">
+    <link rel="stylesheet" type="text/css" href="footer.css">
+    <link rel="icon" type="image/png" href="./images/sitelogo.png" />
+</head>
+
+<body>
+    <div class="orderBox">
+        <h1>Package Booked Successfully <img src="https://media.tenor.com/Hw7f-4l0zgEAAAAC/check-green.gif" alt=""></h1>
+        <div class="inner_box">
+            <h2>Booking Details</h2>
+            <img id="trip-image" alt="">
+            <p id="main-name">Destination: </p>
+            <p id="orderQTY">Number Of Pax: </p>
+            <p id="totalPay">Total: </p>
+        </div>
+        <br>
+        <br>
+        <a href="index.html">
+            <p><button id="homePage">Go To HomePage</button></p>
+        </a>
+    </div>
+    <link rel="stylesheet" href="BookingCreated.css">
+</body>
+<script>
+    const orderObj = JSON.parse(localStorage.getItem('selectedProduct'));
+    document.getElementById('main-name').innerHTML = `Destination: ${orderObj.location}`;
+    document.getElementById('totalPay').innerHTML = `Total: US$${orderObj.totalOrderValue}`;
+    document.getElementById('trip-image').src = `${orderObj.image}`;
+    document.getElementById('orderQTY').innerHTML = `Number Of Pax: ${orderObj.qty}`;
+</script>

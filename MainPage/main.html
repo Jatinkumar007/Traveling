@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <section class="top-nav">
+        <div>
+            <h1>WANDERLUST</h1>
+        </div>
+        <input id="menu-toggle" type="checkbox" />
+        <label class='menu-button-container' for="menu-toggle">
+            <div class='menu-button'></div>
+        </label>
+        <ul class="menu">
+            <li>DISCOVER</li>
+            <li>COMMUNITY</li>
+            <li>SPECIAL DEALS</li>
+            <li>PACKAGES</li>
+            <li>ABOUT US</li>
+        </ul>
+    </section>
+    <div id="middlebody">
+        <div class="search-container">
+            <input type="text" id="search-box" class="search-box" placeholder="Enter country to search">
+            <button id="search-button" class="search-button">Search</button>
+            <button class="search-button" id="low-to-high-button">Low To High</button>
+            <button class="search-button" id="high-to-low-button">High To Low</button>
+        </div>
+         <div id="zero">
+            <div id="one"></div>
+            <div class="container" id="cards"></div>
+         </div> 
+        <div id="pagination"></div>
+    </div>
+
+    <footer class="footer">
+
+        <div class="footer-top">
+            <div class="container">
+
+                <div class="footer-brand">
+
+                    <a href="#" class="logo">
+                        <img src="../images/sitelogo.png" alt="wanderlustlogo">
+                    </a>
+
+                    <p class="footer-text">
+                        "Traveling – it leaves you speechless, then turns you into a storyteller." - Ibn Battuta
+                        "The world is a book and those who do not travel read only one page." - Saint Augustine
+                        "Travel is the only thing you buy that makes you richer." - Unknown
+                    </p>
+
+                </div>
+
+                <div class="footer-contact">
+
+                    <h4 class="contact-title">Contact Us</h4>
+
+                    <p class="contact-text">
+                        Feel free to contact and reach us !!
+                    </p>
+
+                    <ul>
+
+                        <li class="contact-item">
+                            <ion-icon name="call-outline"></ion-icon>
+
+                            <a href="tel:+01123456790" class="contact-link">+91 - (99)-XXXX XXXX</a>
+                        </li>
+
+                        <li class="contact-item">
+                            <ion-icon name="mail-outline"></ion-icon>
+
+                            <a href="mailto:info.wanderlust.com" class="contact-link">info.wanderlust.com</a>
+                        </li>
+
+                        <li class="contact-item">
+                            <ion-icon name="location-outline"></ion-icon>
+
+                            <address>+91 Sec-62 NOIDA, INDIA</address>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+                <div class="footer-form">
+
+                    <p class="form-text">
+                        Subscribe our newsletter for more update & news !!
+                    </p>
+
+                    <form action="" class="form-wrapper">
+                        <input type="email" name="email" class="input-field" placeholder="Enter Your Email" required>
+
+                        <button type="submit" class="btn btn-secondary">Subscribe</button>
+                    </form>
+
+                </div>
+
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="container">
+
+                <p class="copyright">
+                    &copy; 2022 <a href="">HimanJatinSheikSanka</a>. All rights reserved
+                </p>
+
+                <ul class="footer-bottom-list">
+
+                    <li>
+                        <a href="#" class="footer-bottom-link">Privacy Policy</a>
+                    </li>
+
+                    <li>
+                        <a href="#" class="footer-bottom-link">Term & Condition</a>
+                    </li>
+
+                    <li>
+                        <a href="#" class="footer-bottom-link">FAQ</a>
+                    </li>
+
+                </ul>
+
+            </div>
+        </div>
+
+    </footer>
+    <script src="main.js"></script>
+</body>
+</html>

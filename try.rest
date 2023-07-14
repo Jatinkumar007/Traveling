@@ -1,0 +1,84 @@
+POST http://localhost:3000/login
+Content-Type: application/json
+
+{
+  "email": "john.doe@example.com",
+  "password": "password123"
+}
+
+###
+POST http://localhost:3000/register
+Content-Type: application/json
+
+{
+  "name":"jatin kumar",
+  "email": "jatin@example.com",
+  "password": "jatin123"
+}
+###
+POST http://localhost:3000/login
+Content-Type: application/json
+
+{
+  "email": "jatin@example.com",
+  "password": "jatin123"
+}
+
+###
+
+###
+
+POST http://localhost:3000/register
+Content-Type: application/json
+
+{
+  "name": "John2 Bhaina",
+  "email": "johnbhaina2@example.com",
+  "password": "password1232"
+}
+
+###
+GET http://localhost:3000/users
+###
+POST http://localhost:3000/cart/1
+Content-Type: application/json
+{
+  "id":1,
+  "quantity":1
+}
+
+
+###
+GET https://fake-server-kl4u.onrender.com/products
+Content-Type: application/json
+
+###
+POST https://fake-server-kl4u.onrender.com/products
+Content-Type: application/json
+
+{
+    "country": "Shanghai",
+    "location": "Puyan Hotel",
+    "rating": "4.6/5",
+    "price": "US$148",
+    "image": "https://ak-d.tripcdn.com/images/0201c12000a9uwfrq7BBF_R_550_412_R5_D.jpg"
+}
+###
+POST http://localhost:3000/login
+Content-Type: application/json
+
+{
+  "email": "aman@example.com",
+  "password": "aman123"
+}
+###
+
+PATCH https://fake-server-kl4u.onrender.com/products/21
+Content-Type: application/json
+
+{
+  "price": 65
+}
+
+###
+GET https://fake-server-kl4u.onrender.com/products

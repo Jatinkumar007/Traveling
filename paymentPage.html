@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Page</title>
+    <link rel="icon" type="image/x-icon" href="logo-1.png">
+    <link rel="stylesheet" type="text/css" href="paymentPage.css">
+    <link rel="icon" type="image/png" href="./images/sitelogo.png" />
+</head>
+<body>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="index.css">
+</head>
+<body>
+    
+<br>
+<div class="payment">
+    <div class="pay1">
+        <h2>Trip Summary</h2>
+        <img alt="" id="trip-image">
+        <p id="main-name">Destination: </p>
+        <p id="orderQTY">
+            Number Of Pax: 
+            <button onclick="decrement()">-</button>
+            <input type="number" id="quantity" value="0" min="1" style="width: 50px;">
+            <button onclick="increment()">+</button>
+            
+        </p>
+        <p id="totalPay">Total Amount Paid: </p>
+    </div>
+    <div class="pay3" id="pay3">
+        <p style="text-align: center;background-color: #ff6f00;margin-right: 20px;padding-top: 10px;padding-bottom: 10px;margin-left: -30px;margin-right: 0px;padding-top: 20px;
+        margin-block: auto;border-start-start-radius: 10px;">Step 1: Recipient Details</p>
+        <br>    
+        <p>Name</p> <input id="person-name" type="text" placeholder="Please enter name">
+        <p>Email</p> <input type="email" placeholder="Please enter email" id="person-email">
+        <br>
+        <button style="background-color: #ff6f00;color: white;padding-top: 15px;padding-bottom: 15px;margin-top: 20px;margin-bottom: 10px;border-radius: 20px;width: 160px;"
+            onclick="proceedToPayment2()">Continue To Payment</button>
+    </div>
+    <div class="pay4" id="pay4">
+        <p style="text-align: center;background-color: #ff6f00;margin-right: 20px;padding-top: 10px;padding-bottom: 10px;margin-left: -30px;margin-right: 0px;padding-top: 20px;
+        margin-block: auto;border-start-start-radius: 10px;">Step 2: Payment Details</p>  
+        <div class="pg">
+            <img src="https://th.bing.com/th/id/OIP.CSv0D_Pv2hzbhGo6UWoLAgHaHa?w=166&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7" alt="">
+            <img src="https://th.bing.com/th/id/OIP.SOrqtMs1uYMm4lpxR5pdGQHaFO?w=235&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7" alt="">
+            <img src="https://th.bing.com/th/id/OIP.Y66E8T9c0AmN-16a-XD30wHaHa?w=170&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7" alt="">
+        </div>      
+        <p>Bank Name</p> <input id="bank-name" type="text" placeholder="Enter Bank Name">
+        <p>Card Number</p> <input type="number"  id="card-no" placeholder="Please enter card number">
+        <p>CVV</p> <input type="number" id="cvv" placeholder="Please enter your cvv">
+        <p>IFSC Code</p><input type="number" id="ifsc" placeholder="Please enter IFSC Code">
+        <a href="BookingCreated.html"><p style="text-align: center;">
+            <button style="background-color: #ff6f00;color: white;padding-top: 15px;padding-bottom: 15px;margin-top: 20px;width: 120px;margin-bottom: 20px;border-radius: 20px;" onclick="success()">Pay Now</button></p>
+    </div></a>
+</div>
+</body>
+<script>
+    const orderObj = JSON.parse(localStorage.getItem('selectedProduct'));
+    document.getElementById('main-name').innerHTML = `Destination: ${orderObj.location}`;
+    document.getElementById('totalPay').innerHTML = `You Pay : US$${orderObj.price}`;
+    document.getElementById('trip-image').src = `${orderObj.image}`;
+    increment();
+
+    function increment() {
+    let input = document.getElementById("quantity");
+    input.value = parseInt(input.value) + 1;
+    let total = parseInt(input.value) * parseFloat(orderObj.price);
+    orderObj.totalOrderValue = Math.ceil(total);
+    orderObj.qty = parseInt(input.value);
+    document.getElementById('totalPay').innerHTML = `You Pay : US$${orderObj.totalOrderValue}`;
+  }
+
+  function decrement() {
+    let input = document.getElementById("quantity");
+    if (input.value > 1) {
+      input.value = parseInt(input.value) - 1;
+    }
+    orderObj.qty = parseInt(input.value);
+    let total = parseInt(input.value) * parseFloat(orderObj.price);
+    orderObj.totalOrderValue = Math.ceil(total);
+    document.getElementById('totalPay').innerHTML = `You Pay : US$${orderObj.totalOrderValue}`;
+  }
+
+    function proceedToPayment2() {
+        if(!!document.getElementById('person-name').value && !!document.getElementById('person-email').value) {
+            document.getElementById('pay3').style.display = 'none';
+            document.getElementById('pay4').style.display = 'grid';
+        } else {
+            alert("Please enter name and email")
+        }
+       
+    }
+
+    function success() {
+        if(!!document.getElementById('bank-name').value 
+            && !!document.getElementById('card-no').value
+            && !!document.getElementById('cvv').value
+            && !!document.getElementById('ifsc').value) {
+            let allOrders = JSON.parse(localStorage.getItem('allOrders')) || [];
+            orderObj.orderDateTime = new Date();
+            orderObj.id = (new Date()).getTime();
+            allOrders.push(orderObj);
+            localStorage.setItem('allOrders', JSON.stringify(allOrders));
+            localStorage.setItem('selectedProduct', JSON.stringify(orderObj));
+            window.location.href = 'orderPage.html';
+        } else {
+            alert("Please enter all details");
+        }
+        
+    }
+</script>
+</html>

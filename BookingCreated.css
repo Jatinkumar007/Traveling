@@ -1,0 +1,54 @@
+body{
+    background: url(https://cdn.dribbble.com/users/795597/screenshots/3569676/travel-planning__1_.gif) no-repeat center;
+    background-size: cover;
+    /* https://cdn.dribbble.com/users/795597/screenshots/3569676/travel-planning__1_.gif */
+}
+
+.orderBox > h1{
+    text-align: center;
+    font-size: 60px;
+    color: #ff6f00;
+}
+
+.orderBox > h1 > img{
+    height: 50px;
+}
+
+
+.orderBox > p{
+    text-align: center;
+    
+}
+
+.orderBox > a > p > button{
+    background-color: #ff6f00;
+    color: white;
+    border: 0px;
+    height: 50px;
+    cursor: pointer;
+    border-radius: 30px;
+    width: 150px;
+    }
+
+div > a{
+    text-align: center;
+}
+
+.inner_box{
+    text-align: center;
+    font-weight:bolder;
+    font-size: 40px;
+    box-shadow: #000000 0px 1px 4px, #000000 0px 0px 0px 3px;
+    height: 600px;
+    color: #ff6f00;
+}
+
+.inner_box > p{
+    color: black;
+    display: flex;
+}
+
+.inner_box>img{
+    height: 200px;
+    display: flex   ;
+}
